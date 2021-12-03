@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface TopicRequest:Request {
 
-    @GET("echo?user_content_key=shL_C0w5YPaGoVQ7kBlC5YtO9RKnll-ogW0raZnNA2Ptua53Ad5EysQw683ymLxL1w1BIo-qlS4saVGmWKqn4ar2eiYrWvlbm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnIfAdsIXIx8zs-a0ea6WJw4N8EpqvyQm-XbwVWSbjsDLbosb0_m1OWgo0_u-wpDcJsLhHbrSHo_mxFtqw32oGw6VNozfntwOPDGxFo93ZKFI&lib=M9Wjj4pVbriAqSweFVJ060LeUs6YUnKQP")
+    @GET("https://script.google.com/macros/s/AKfycbznWpk2m8q6lbLWSS6qaz3uS6j3L4zPwv7CqDEiC433YOgAdaFekGJmjoAO60quMg6l/exec?f=data")
     fun getTopic(): Call<Topic>
 
 }

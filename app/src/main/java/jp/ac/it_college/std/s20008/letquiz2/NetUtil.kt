@@ -52,9 +52,9 @@ object NetUtil {
             .create(cls) as T
     }
 
-    fun getAuthenticationCookie(): String {
-        val cookieList = cookieStore[AUTHENTICATION_COOKIE].toString()
-        return cookieList.substring(1, cookieList.length - 1)
-    }
+//    fun getAuthenticationCookie(): String {
+//        val cookieList = cookieStore[AUTHENTICATION_COOKIE].toString()
+//        return cookieList.substring(1, cookieList.length - 1)
+//    }
 
 }

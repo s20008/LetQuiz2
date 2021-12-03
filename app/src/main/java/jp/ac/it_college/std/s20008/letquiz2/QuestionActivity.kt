@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import jp.ac.it_college.std.s20008.letquiz2.databinding.ActivityMainBinding
 import jp.ac.it_college.std.s20008.letquiz2.databinding.ActivityQuestionBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,17 +16,15 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuestionBinding
 
     private val topicService = NetUtil.getService(TopicRequest::class.java)
-    private val topics = Topic() //150道题
+    private val topics = Topic() //API全部题目
     private lateinit var adaper: TopicAdapter
     private var curPos = 0
-    private val item = mutableListOf<TopicItem>()
+    private val item = mutableListOf<TopicItem>() //一套题
     private val ans = mutableSetOf<String>()
     private var count = 0
     private var correct = 0
-
     private var selectCount = 0
     private var flag = true
-
     private var timerCount:String? = null
 
     inner class MyCountDownTimer(millisInFuture:Long, countDownInteral:Long)
@@ -115,17 +112,11 @@ class QuestionActivity : AppCompatActivity() {
         binding.next.setOnClickListener {
             flag = true
             selectCount = 0
-//            Toast.makeText(this, "$count", Toast.LENGTH_SHORT).show()
             binding.appProgressBar.progress = count
             binding.appProgressBar.max = 10
             binding.appProgress.text = "$count/10"
             if (count >= 10){
-//                with(Intent(this@QuestionActivity,ResultActivity::class.java)){
-//                    putExtra("correct", correct)
-//                    startActivityForResult(this,0x11)
-//
-//                }
-                setQuestion()
+                setIntent()
                 count = 0
                 return@setOnClickListener
             }
@@ -176,7 +167,7 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setQuestion() {
+    private fun setIntent() {
 
         val times = binding.timerText.text.toString().split(":")
         val min = times[0].toLong()
