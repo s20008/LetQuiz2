@@ -19,7 +19,7 @@ class QuestionActivity : AppCompatActivity() {
     private val topics = Topic() //API全部题目
     private lateinit var adaper: TopicAdapter
     private var curPos = 0
-    private val item = mutableListOf<TopicItem>() //一套题
+    private val item = mutableListOf<TopicItem>()
     private val ans = mutableSetOf<String>()
     private var count = 0
     private var correct = 0
@@ -130,6 +130,7 @@ class QuestionActivity : AppCompatActivity() {
 
         val examDao = DbUtil.getInstance(this).examDao()
 
+        //写入
         Thread{
             val all = examDao.getAll()
             topics.clear()
@@ -176,8 +177,9 @@ class QuestionActivity : AppCompatActivity() {
         timerCount = total.toString()
 
         val intent = Intent(this@QuestionActivity, ResultActivity::class.java)
-        intent.putExtra("TIMER_COUNT",timerCount)
+        intent.putExtra("timer_count",timerCount)
         intent.putExtra("correct", correct)
+
         startActivity(intent)
         finish()
         return

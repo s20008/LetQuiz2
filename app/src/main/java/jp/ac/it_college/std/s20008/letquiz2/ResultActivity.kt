@@ -18,14 +18,15 @@ class ResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val intExtra = intent.getIntExtra("correct", -1)
-        val timer = intent.getStringExtra("TIMER_COUNT")
-        val questioncount = 10.toString()
+        val timer = intent.getStringExtra("timer_count")
+
+
 
         binding.correcttext.text = "${intExtra}/10"
         binding.timetext.text = "${timer}秒"
 
         if (timer != null) {
-            if (timer.toLong() > questioncount.toLong() * 10) {
+            if (timer.toLong() >= 10 * 10) {
                 binding.timetext.text = "time over"
             }
         }
