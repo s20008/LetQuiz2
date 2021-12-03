@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LetQuiz2</string>
+    <string name="TitleName" translatable="false">Let\'s Quiz</string>
+    <string name="StartButton">Start</string>
+    <string name="NextButton">Next</string>
+    <string name="ChoicesSample">choice</string>
+</resources>

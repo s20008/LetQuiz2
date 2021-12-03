@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">クイズ</string>
+    <string name="StartButton">スタート</string>
+    <string name="NextButton">次へ</string>
+    <string name="ChoicesSample">仮想化テクノロジを使用して、インフラストラクチャ内でオンデマンドでインフラストラクチャを提供する展開モデル</string>
+</resources>
