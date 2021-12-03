@@ -148,6 +148,7 @@ class QuestionActivity : AppCompatActivity() {
             handler.sendEmptyMessage(0x11)
         }.start()
 
+        //OkHttp
         topicService.getTopic().enqueue(object : Callback<Topic> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(call: Call<Topic>, response: Response<Topic>) {
