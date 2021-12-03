@@ -4,4 +4,7 @@
     <string name="StartButton">スタート</string>
     <string name="NextButton">次へ</string>
     <string name="ChoicesSample">仮想化テクノロジを使用して、インフラストラクチャ内でオンデマンドでインフラストラクチャを提供する展開モデル</string>
+    <string name="correctNumber">正解数:</string>
+    <string name="timeSpent">使用時間:</string>
+    <string name="finish">終わり</string>
 </resources>

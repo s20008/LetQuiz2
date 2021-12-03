@@ -4,4 +4,7 @@
     <string name="StartButton">Start</string>
     <string name="NextButton">Next</string>
     <string name="ChoicesSample">choice</string>
+    <string name="correctNumber">Correct number</string>
+    <string name="timeSpent">Time spent</string>
+    <string name="finish">finish</string>
 </resources>

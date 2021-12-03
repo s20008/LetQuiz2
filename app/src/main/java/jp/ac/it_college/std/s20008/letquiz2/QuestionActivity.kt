@@ -108,7 +108,7 @@ class QuestionActivity : AppCompatActivity() {
         binding.topic.adapter = adaper
         binding.topic.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
-        binding.timerText.text = "{10}:{0}"
+        binding.timerText.text = "{item!!.size}:{0}"
         val timer = MyCountDownTimer((10 * 10 * 1000).toLong(),100)
         timer.start()
 
@@ -181,7 +181,7 @@ class QuestionActivity : AppCompatActivity() {
         val times = binding.timerText.text.toString().split(":")
         val min = times[0].toLong()
         val sec = times[1].toLong()
-        val total = (item.size * 10) - (min * 60 + sec)
+        val total = (10 * 10) - (min * 60 + sec)
         timerCount = total.toString()
 
         val intent = Intent(this@QuestionActivity, ResultActivity::class.java)

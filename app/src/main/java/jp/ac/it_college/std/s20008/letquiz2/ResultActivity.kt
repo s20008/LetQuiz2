@@ -1,5 +1,6 @@
 package jp.ac.it_college.std.s20008.letquiz2
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_result.*
 class ResultActivity : AppCompatActivity() {
     private lateinit var binding:ActivityResultBinding
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
@@ -17,13 +19,23 @@ class ResultActivity : AppCompatActivity() {
 
         val intExtra = intent.getIntExtra("correct", -1)
         val timer = intent.getStringExtra("TIMER_COUNT")
-        binding.result.text = "${intExtra}/10"
+        val questioncount = 10.toString()
+
+        binding.correcttext.text = "${intExtra}/10"
+        binding.timetext.text = "${timer}秒"
+
+        if (timer != null) {
+            if (timer.toLong() > questioncount.toLong() * 10) {
+                binding.timetext.text = "time over"
+            }
+        }
+
 
 //        continute.setOnClickListener {
 //            finish()
 //            setResult(Activity.RESULT_OK)
 //        }
-        binding.continute.setOnClickListener {
+        binding.finish.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
