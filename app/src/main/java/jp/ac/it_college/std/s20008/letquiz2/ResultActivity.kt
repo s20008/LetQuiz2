@@ -1,12 +1,10 @@
 package jp.ac.it_college.std.s20008.letquiz2
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import jp.ac.it_college.std.s20008.letquiz2.databinding.ActivityResultBinding
-import kotlinx.android.synthetic.main.activity_result.*
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var binding:ActivityResultBinding
@@ -19,6 +17,8 @@ class ResultActivity : AppCompatActivity() {
 
         val intExtra = intent.getIntExtra("correct", -1)
         val timer = intent.getStringExtra("timer_count")
+        val count = intent.getIntExtra("count",-1)
+
 
 
 
@@ -26,7 +26,7 @@ class ResultActivity : AppCompatActivity() {
         binding.timetext.text = "${timer}秒"
 
         if (timer != null) {
-            if (timer.toLong() >= 10 * 10) {
+            if (timer.toLong() >= count * 10) {
                 binding.timetext.text = "time over"
             }
         }

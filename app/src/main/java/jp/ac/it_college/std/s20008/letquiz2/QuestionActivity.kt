@@ -95,6 +95,7 @@ class QuestionActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuestionBinding.inflate(layoutInflater)
@@ -116,8 +117,19 @@ class QuestionActivity : AppCompatActivity() {
             binding.appProgressBar.max = 10
             binding.appProgress.text = "$count/10"
             if (count >= 10){
-                setIntent()
-                count = 0
+                val times = binding.timerText.text.toString().split(":")
+                val min = times[0].toLong()
+                val sec = times[1].toLong()
+                val total = (count * 10) - (min * 60 + sec)
+                timerCount = total.toString()
+
+                val intent = Intent(this@QuestionActivity, ResultActivity::class.java)
+                intent.putExtra("timer_count",timerCount)
+                intent.putExtra("correct", correct)
+                intent.putExtra("count", count)
+
+                startActivity(intent)
+                finish()
                 return@setOnClickListener
             }
 
@@ -168,24 +180,4 @@ class QuestionActivity : AppCompatActivity() {
 
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun setIntent() {
-
-        val times = binding.timerText.text.toString().split(":")
-        val min = times[0].toLong()
-        val sec = times[1].toLong()
-        val total = (10 * 10) - (min * 60 + sec)
-        timerCount = total.toString()
-
-        val intent = Intent(this@QuestionActivity, ResultActivity::class.java)
-        intent.putExtra("timer_count",timerCount)
-        intent.putExtra("correct", correct)
-
-        startActivity(intent)
-        finish()
-        return
-
-
-
-    }
 }
